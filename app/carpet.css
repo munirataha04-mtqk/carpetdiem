@@ -1,0 +1,184 @@
+/* Carpet Diem — all layout styles (plain CSS, works without Tailwind) */
+
+.cd-scroll {
+  height: 1000vh;
+  background: #e9dfcf;
+  color: #2b2420;
+}
+
+.cd-stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cd-canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---------- Scene 1: the landing photo ---------- */
+.cd-hero {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #1b130d;
+  pointer-events: none;
+}
+
+/* Keeps the photo's shape and always covers the screen,
+   so the brand name always stays on the pillar */
+.cd-hero-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100vw, calc(100vh * 1.821));
+  height: max(100vh, calc(100vw / 1.821));
+  transform-origin: 51.5% 60%;
+  container-type: size;
+}
+
+.cd-hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+}
+
+.cd-pillar-title {
+  position: absolute;
+  left: 51.6%;
+  top: 27.5%;
+  transform: translateX(-50%);
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 3.7cqw;
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  color: #b48c55;
+  text-shadow:
+    0 0 0.35em rgba(255, 214, 150, 0.6),
+    0 0 1.1em rgba(255, 200, 130, 0.35),
+    0 0.04em 0.06em rgba(90, 60, 30, 0.35);
+}
+
+.cd-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 42%, transparent 52%, rgba(28, 17, 9, 0.5) 100%),
+    linear-gradient(to top, rgba(24, 14, 7, 0.6), transparent 24%);
+}
+
+.cd-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 4.5vh;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #f3eadb;
+  white-space: nowrap;
+}
+
+/* ---------- beige cross-fade ---------- */
+.cd-veil {
+  position: absolute;
+  inset: 0;
+  background: #e9dfcf;
+  pointer-events: none;
+}
+
+/* ---------- Scene 7: story ---------- */
+.cd-story {
+  position: absolute;
+  right: 7vw;
+  top: 50%;
+  width: min(30vw, 420px);
+  height: 12rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.cd-story-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  line-height: 1.3;
+  color: #2b2420;
+}
+
+.cd-story-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #8a7458;
+}
+
+/* ---------- Scene 9: ending ---------- */
+.cd-ending {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #efe6d6;
+  pointer-events: none;
+}
+
+.cd-ending h2 {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 8vw, 5.5rem);
+  letter-spacing: 0.18em;
+  color: #2b2420;
+}
+
+.cd-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #e9dfcf;
+}
+
+.cd-fallback img {
+  max-width: 70vw;
+  max-height: 70vh;
+  box-shadow: 0 30px 60px rgba(60, 40, 20, 0.25);
+}
+
+/* ---------- Tablet & mobile ---------- */
+@media (max-width: 900px), (orientation: portrait) {
+  .cd-story {
+    left: 6vw;
+    right: 6vw;
+    top: auto;
+    bottom: 7vh;
+    width: auto;
+    height: 9rem;
+    transform: none;
+    text-align: center;
+  }
+  .cd-story-line {
+    font-size: clamp(1.25rem, 5vw, 1.7rem);
+  }
+}
